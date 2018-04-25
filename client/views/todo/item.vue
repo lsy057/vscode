@@ -9,15 +9,15 @@
 </template>
 <script>
 export default {
-  props:{
-    todo:{
-      type:Object,
-      required:true
+  props: {
+    todo: {
+      type: Object,
+      required: true
     }
   },
-  methods:{
-    deleteTodo(){
-      this.$emit('del',this.todo.id)
+  methods: {
+    deleteTodo () {
+      this.$emit('del', this.todo.id)
     }
   }
 }
@@ -64,10 +64,10 @@ export default {
         padding-left 5px
         cursor pointer
         &:after{
-            content: url('../assets/images/round.svg')
+            content: url('../../assets/images/round.svg')
         }
         &:checked:after{
-            content: url('../assets/images/done.svg')
+            content: url('../../assets/images/done.svg')
         }
     }
     .destroy{
