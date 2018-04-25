@@ -25,30 +25,30 @@ export default {
       type: String,
       required: true
     },
-    todos:{
-      type:String,
-      required:true,
+    todos: {
+      type: Array,
+      required: true
     }
   },
-  data() {
+  data () {
     return {
-      states: ["all", "active", "completed"]
-    };
+      states: ['all', 'active', 'completed']
+    }
   },
-  computed:{
-    unFinishedTodosLength(){
-     return this.todos.filter(todo=>!todo.completed).length
+  computed: {
+    unFinishedTodosLength () {
+      return this.todos.filter(todo => !todo.completed).length
     }
   },
   methods: {
-    toggleFilter(state) {
-      this.$emit("toggle", state);
+    toggleFilter (state) {
+      this.$emit('toggle', state)
     },
-    clearAllCompleted() {
-      this.$emit("clearAllCompleted");
+    clearAllCompleted () {
+      this.$emit('clearAllCompleted')
     }
   }
-};
+}
 </script>
 
 

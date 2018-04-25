@@ -21,15 +21,15 @@
   </section>
 </template>
 <script>
-import Item from "./item.vue";
-import Tabs from "./tabs.vue";
-let id = 0;
+import Item from './item.vue'
+import Tabs from './tabs.vue'
+let id = 0
 export default {
-  data() {
+  data () {
     return {
       todos: [],
-      filter: "all"
-    };
+      filter: 'all'
+    }
   },
   components: {
     Item,
@@ -37,38 +37,38 @@ export default {
   },
   // 计算
   computed: {
-    filteredTodos() {
-      if (this.filter === "all") {
-        return this.todos;
+    filteredTodos () {
+      if (this.filter === 'all') {
+        return this.todos
       }
-      const completed = this.filter === "completed";
+      const completed = this.filter === 'completed'
 
       // 将todos数组中，completed为true的值过滤出来，并返回一个新数组
-      return this.todos.filter(todo => completed === todo.completed);
+      return this.todos.filter(todo => completed === todo.completed)
     }
   },
   methods: {
-    addTodo(e) {
+    addTodo (e) {
       this.todos.unshift({
         id: id++,
         content: e.target.value.trim(),
         completed: false
-      });
+      })
       // 内容清空
-      e.target.value = "";
+      e.target.value = ''
     },
-    deleteTodo() {
-      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1);
+    deleteTodo () {
+      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
-    toggleFilter(state) {
-      this.filter = state;
+    toggleFilter (state) {
+      this.filter = state
     },
-    clearAllCompleted() {
+    clearAllCompleted () {
       // 给todos赋一个新的值（即todo.completed为false的值）
-      this.todos = this.todos.filter(todo => todo.completed === false);
+      this.todos = this.todos.filter(todo => todo.completed === false)
     }
   }
-};
+}
 </script>
 <style lang="stylus" scoped>
 .real-app {

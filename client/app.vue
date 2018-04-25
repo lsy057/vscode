@@ -4,9 +4,9 @@
 <!-- app.vue 的template标签内只能有一个节点 -->
     <div id="app">
         <div id="cover"></div>
-        <APP_Header></APP_Header>
-        <APP_Todo></APP_Todo>
-        <APP_Footer></APP_Footer>
+        <appHeader></appHeader>
+        <appTodo></appTodo>
+        <appFooter></appFooter>
     </div>
 </template>
 <script>
@@ -18,27 +18,27 @@
 //   }
 // }
 // 引入header.vue组件
-    import APP_Header from './todo/header.vue';
+import appHeader from './layout/header.vue'
 
-    // 引入footer.jsx组件
-    import APP_Footer from './todo/footer.jsx';
+// 引入footer.jsx组件
+import appFooter from './layout/footer.jsx'
 
-    // 引入todo.vue组件
-    import APP_Todo from './todo/todo.vue';
-
-    export default {
-        // 声明组件，之后便可以使用组件标签
-        components: {
-            APP_Header,
-            APP_Footer,
-            APP_Todo
-        },
-        data(){
-          return{
-            text:'abcefffsdffdsf'
-          }
-        }
+// 引入todo.vue组件
+import appTodo from './views/todo/todo.vue'
+// console.log(APP_Header.__docs);
+export default {
+  // 声明组件，之后便可以使用组件标签
+  components: {
+    appHeader,
+    appFooter,
+    appTodo
+  },
+  data () {
+    return {
+      text: 'abcefffsdffdsf'
     }
+  }
+}
 </script>
 
 
