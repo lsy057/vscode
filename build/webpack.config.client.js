@@ -70,11 +70,11 @@ if (isDev) {
   })
 } else {
   config = merge(baseConfig, {
-    entry:path.join(__dirname,'../client/index.js'),
-  output:{
-    filename:'bundle.[hash:8].js',
-    path:path.join(__dirname,'../dist')
-  },
+    entry: path.join(__dirname, '../client/index.js'),
+    output: {
+      filename: 'bundle.[hash:8].js',
+      path: path.join(__dirname, '../dist')
+    },
     module: {
       rules: [
         {
@@ -96,7 +96,7 @@ if (isDev) {
       ]
     },
     plugins: defaultPluins.concat([
-      new ExtractPlugin('styles.[hash:8].css'),
+      new ExtractPlugin('styles.[hash:8].css')
       // new webpack.optimize.CommonsChunkPlugin({
       //   name: 'vendor'
       // }),
@@ -110,21 +110,21 @@ if (isDev) {
 
 config.optimization = {
   splitChunks: {
-      cacheGroups: {                  // 这里开始设置缓存的 chunks
-          commons: {
-              chunks: 'initial',      // 必须三选一： "initial" | "all" | "async"(默认就是异步)
-              minSize: 0,             // 最小尺寸，默认0,
-              minChunks: 2,           // 最小 chunk ，默认1
-              maxInitialRequests: 5   // 最大初始化请求书，默认1
-          },
-          vendor: {
-              test: /node_modules/,   // 正则规则验证，如果符合就提取 chunk
-              chunks: 'initial',      // 必须三选一： "initial" | "all" | "async"(默认就是异步)
-              name: 'vendor',         // 要缓存的 分隔出来的 chunk 名称
-              priority: 10,           // 缓存组优先级
-              enforce: true
-          }
+    cacheGroups: { // 这里开始设置缓存的 chunks
+      commons: {
+        chunks: 'initial', // 必须三选一： "initial" | "all" | "async"(默认就是异步)
+        minSize: 0, // 最小尺寸，默认0,
+        minChunks: 2, // 最小 chunk ，默认1
+        maxInitialRequests: 5 // 最大初始化请求书，默认1
+      },
+      vendor: {
+        test: /node_modules/, // 正则规则验证，如果符合就提取 chunk
+        chunks: 'initial', // 必须三选一： "initial" | "all" | "async"(默认就是异步)
+        name: 'vendor', // 要缓存的 分隔出来的 chunk 名称
+        priority: 10, // 缓存组优先级
+        enforce: true
       }
+    }
   },
   runtimeChunk: true
 }
