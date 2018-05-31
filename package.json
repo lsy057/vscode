@@ -11,7 +11,7 @@
     "build": "npm run clean $$ npm run build:client",
     "lint": "eslint --ext .js --ext .jsx --ext .vue client/",
     "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue client/",
-    "precommit": "npm run lint-fix",    
+    "precommit": "npm run lint-fix",
     "practice": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.practice.js --progress --colors --inline --hot"
  },
   "author": "",
